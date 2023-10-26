@@ -1,6 +1,6 @@
 package contains_duplicates
 
-func containsDuplicates(nums []int) bool {
+func containsDuplicate(nums []int) bool {
 	seen := make(map[int]bool)
 
 	for _, num := range nums {

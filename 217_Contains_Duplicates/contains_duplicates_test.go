@@ -18,7 +18,7 @@ func TestContainsDuplicates(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(fmt.Sprintf("Test Case #%v", tc.id), func(t *testing.T) {
-			output := containsDuplicates(tc.nums)
+			output := containsDuplicate(tc.nums)
 			if tc.expected != output {
 				t.Errorf("\n input: %v\n expected: %v\n returned: %v", tc.nums, tc.expected, output)
 			}
