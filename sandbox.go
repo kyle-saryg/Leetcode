@@ -5,8 +5,7 @@ import (
 )
 
 func main() {
-	head := linkedList.InitList(3)
-	head.AppendSlice([]int{1, 6, 3, 8, 0, 2, 4, 8, 4, 9})
+	head := linkedList.CreateList([]int{3, 6, 2, 7, 8, 2})
 
 	head.Display()
 }
