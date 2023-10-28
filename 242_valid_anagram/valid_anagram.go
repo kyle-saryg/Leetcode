@@ -1,8 +1,15 @@
 package valid_anagram
 
 /*
-Same number of characters
-map{char: int (number of occurences)}
+SPACE - TIME Complexity
+
+l -> Length of longest string
+createMap() => O(l)
+len() => O(l)
+for loop => O(l)
+
+Time - Complexity: O(l)
+Space - Complexity: O(1)
 */
 
 func isAnagram(s string, t string) bool {
