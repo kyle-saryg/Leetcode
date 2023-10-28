@@ -48,10 +48,9 @@ func createNode(val int) *ListNode {
 
 func (head *ListNode) Display() {
 	for head.Next != nil {
-		fmt.Printf("<%v> -> ", head.Val)
+		fmt.Printf("|%v| -> ", head.Val)
 		head = head.Next
 	}
-	head = head.Next
-	fmt.Printf("<%v> -> <%v>", head.Val, head.Next)
+	fmt.Printf("|%v| -> |%v|", head.Val, head.Next)
 	fmt.Printf("\n")
 }
