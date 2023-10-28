@@ -5,6 +5,5 @@ import (
 )
 
 func reverseList(head *ListNode) *ListNode {
-
 	return nil
 }
