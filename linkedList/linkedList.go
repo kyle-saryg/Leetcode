@@ -115,6 +115,11 @@ func LinkedListLen(head *ListNode) int {
 	return ctr
 }
 
-func toSlice(*ListNode) []int {
-
+func ToSlice(head *ListNode) []int {
+	var slice []int
+	for head != nil {
+		slice = append(slice, head.Val)
+		head = head.Next
+	}
+	return slice
 }
