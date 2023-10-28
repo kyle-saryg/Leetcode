@@ -38,6 +38,16 @@ func (head *ListNode) AppendSlice(vals []int) {
 	}
 }
 
+func CreateList(vals []int) *ListNode {
+	if len(vals) == 0 {
+		return nil
+	}
+
+	head := InitList(vals[0])
+	head.AppendSlice(vals[1:])
+	return head
+}
+
 func createNode(val int) *ListNode {
 	newNode := new(ListNode)
 	newNode.Val = val
