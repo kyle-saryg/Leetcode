@@ -1,5 +1,11 @@
 package linkedList
 
+/*
+TODO:
+	// Compare(*ListNode, *ListNode) bool
+	toSlice(*ListNode) []int
+*/
+
 import (
 	"fmt"
 )
@@ -38,6 +44,31 @@ func (head *ListNode) AppendSlice(vals []int) {
 	}
 }
 
+func Compare(a *ListNode, b *ListNode) bool {
+	if LinkedListLen(a) == 0 && LinkedListLen(b) == 0 {
+		return true
+	}
+
+	if LinkedListLen(a) != LinkedListLen(b) {
+		return false
+	}
+
+	// Iterate through either list
+	// -- Compare values
+	ptrA := a
+	ptrB := b
+
+	for ptrA.Next != nil {
+		if ptrA.Val != ptrB.Val {
+			return false
+		}
+		ptrA = ptrA.Next
+		ptrB = ptrB.Next
+	}
+
+	return true
+}
+
 func CreateList(vals []int) *ListNode {
 	if len(vals) == 0 {
 		return nil
@@ -57,10 +88,30 @@ func createNode(val int) *ListNode {
 }
 
 func (head *ListNode) Display() {
+	if head == nil {
+		fmt.Printf("|%v|\n", nil)
+		return
+	}
+
 	for head.Next != nil {
 		fmt.Printf("|%v| -> ", head.Val)
 		head = head.Next
 	}
 	fmt.Printf("|%v| -> |%v|", head.Val, head.Next)
 	fmt.Printf("\n")
+}
+
+func LinkedListLen(head *ListNode) int {
+	if head == nil {
+		return 0
+	}
+
+	ptr := head
+	ctr := 1
+	for ptr.Next != nil {
+		ptr = ptr.Next
+		ctr++
+	}
+
+	return ctr
 }
