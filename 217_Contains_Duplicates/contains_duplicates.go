@@ -1,4 +1,4 @@
-package contains_duplicates
+package containsDuplicates
 
 /*
 SPACE - TIME Complexity
