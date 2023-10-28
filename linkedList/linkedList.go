@@ -2,7 +2,6 @@ package linkedList
 
 /*
 TODO:
-	// Compare(*ListNode, *ListNode) bool
 	toSlice(*ListNode) []int
 */
 
@@ -114,4 +113,8 @@ func LinkedListLen(head *ListNode) int {
 	}
 
 	return ctr
+}
+
+func toSlice(*ListNode) []int {
+
 }
