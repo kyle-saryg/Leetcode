@@ -1,4 +1,4 @@
-package valid_anagram
+package validAnagram
 
 /*
 SPACE - TIME Complexity
