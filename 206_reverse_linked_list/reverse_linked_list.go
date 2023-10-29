@@ -33,12 +33,19 @@ func reverseList(head *ListNode) *ListNode {
 		ptr = ptr.Next
 	}
 
-	// Iterate through LL backwards
+	// Traverse through LL backwards
 	// Copying values into slice
-	values := []int
-	i := maxIndex
-	for i >= 0 {
+	values := []int{}
+	for i := maxIndex; i >= 0; i-- {
 		ptr = moveTo(ptr, i)
+		values = append(values, ptr.Val)
+	}
+
+	// Traverse LL copying values from slice to each corresponding node
+	ptr = head
+	for i := 0; i < maxIndex; i++ {
+		ptr.Val = values[i]
+		ptr = ptr.Next
 	}
 
 	return nil
