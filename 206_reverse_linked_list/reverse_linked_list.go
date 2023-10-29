@@ -8,16 +8,15 @@ import (
 SINGLY LINKED LIST
 
 Algorithm:
+-- Find index of last node
 
-	 -- Find index of last node
+-- Iterate through LL backwards
+  - Copying values into a slice or array
+  - Slice is now in reverse order from LL
 
-	 -- Iterate through LL backwards
-		 -- Copying values into a slice or array
-		 -- Slice is now in reverse order from LL
-
-	 -- Iterate through LL
-	 	 -- Copying values from slice into each node
-		 -- NOTE: Use an indexing variable to synchronize slice and LL nodes
+-- Iterate through LL
+  - Copying values from slice into each node
+  - NOTE: Use an indexing variable to synchronize slice and LL nodes
 */
 func reverseList(head *ListNode) *ListNode {
 	// Empty list
@@ -47,13 +46,26 @@ func reverseList(head *ListNode) *ListNode {
 
 /*
 Usage:
-
-	-- Setting 'index' to a value past the list WILL SEGFAULT
+-- Setting 'index' to a value past the list WILL SEGFAULT
 
 TODO:
-
-	-- Check if 'ptr' moves past the end of list
+-- Error check if 'ptr' moves past the end of list
 */
 func moveTo(ptr *ListNode, index int) *ListNode {
+	tmp := 0
+	// TODO: Check if < or <=
 
+	/*
+		index = 4
+
+		[] [] [] [] [] []
+		0  1  2  3  4  5
+	*/
+
+	for tmp < index {
+		ptr = ptr.Next
+		tmp++
+	}
+
+	return ptr
 }
