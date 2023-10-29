@@ -1,6 +1,8 @@
 package reverseLinkedList
 
 import (
+	"fmt"
+
 	. "github.com/kyle-saryg/Leetcode/linkedList"
 )
 
@@ -28,10 +30,12 @@ func reverseList(head *ListNode) *ListNode {
 	// Last Node is 'maxIndex - 1'
 	maxIndex := 0
 	ptr := head
+
 	for ptr.Next != nil {
 		maxIndex++
 		ptr = ptr.Next
 	}
+	fmt.Println(" -- LINE 38")
 
 	// Traverse through LL backwards
 	// Copying values into slice
@@ -58,6 +62,7 @@ Usage:
 TODO:
 -- Error check if 'ptr' moves past the end of list
 */
+// SEGFAULTS DEBUG
 func moveTo(ptr *ListNode, index int) *ListNode {
 	tmp := 0
 	// TODO: Check if < or <=
