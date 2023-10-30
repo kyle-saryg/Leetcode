@@ -1,8 +1,6 @@
 package reverseLinkedList
 
 import (
-	"fmt"
-
 	. "github.com/kyle-saryg/Leetcode/linkedList"
 )
 
@@ -35,13 +33,12 @@ func reverseList(head *ListNode) *ListNode {
 		maxIndex++
 		ptr = ptr.Next
 	}
-	fmt.Println(" -- LINE 38")
 
 	// Traverse through LL backwards
 	// Copying values into slice
 	values := []int{}
 	for i := maxIndex; i >= 0; i-- {
-		ptr = moveTo(ptr, i)
+		ptr = moveTo(head, i)
 		values = append(values, ptr.Val)
 	}
 
@@ -52,7 +49,7 @@ func reverseList(head *ListNode) *ListNode {
 		ptr = ptr.Next
 	}
 
-	return nil
+	return head
 }
 
 /*
@@ -70,8 +67,8 @@ func moveTo(ptr *ListNode, index int) *ListNode {
 	/*
 		index = 4
 
-		[] [] [] [] [] []
-		0  1  2  3  4  5
+		[] [] [] [] []
+		0  1  2  3  4
 	*/
 
 	for tmp < index {
