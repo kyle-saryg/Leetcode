@@ -7,7 +7,7 @@ import (
 /*
 SINGLY LINKED LIST
 
-Algorithm:
+Algorithm: 1
 -- Find index of last node
 
 -- Iterate through LL backwards
@@ -17,6 +17,12 @@ Algorithm:
 -- Iterate through LL
   - Copying values from slice into each node
   - NOTE: Use an indexing variable to synchronize slice and LL nodes
+
+Notes:
+  - Pretty bad Memory - Complexity
+  - Could make algorithm in-place
+  - Replace slice with a single int (would add more traversal)
+  - Sacrifice memory, for speed
 */
 func reverseList(head *ListNode) *ListNode {
 	// Empty list
@@ -44,7 +50,7 @@ func reverseList(head *ListNode) *ListNode {
 
 	// Traverse LL copying values from slice to each corresponding node
 	ptr = head
-	for i := 0; i < maxIndex; i++ {
+	for i := 0; i <= maxIndex; i++ {
 		ptr.Val = values[i]
 		ptr = ptr.Next
 	}
