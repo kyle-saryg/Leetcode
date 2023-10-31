@@ -27,7 +27,12 @@ Space Complexity: O(1)
    -- slice which grows with the size of the LL
  - No additional memory is allocated
 
-Time Complexity: O(n^2) ?? CHECK ONCE DONE CODING
+Time Complexity: O(n^2)
+ - moving ptr2 to the end of the list: O(n)
+ - swap Values: O(1)
+ - moveTo: O(n) => Within a loop that iterates through half the LL => O(n^2)
+
+ - Tot. O(n^2 + n + 1)
 */
 
 func reverseList(head *ListNode) *ListNode {
@@ -64,8 +69,8 @@ func reverseList(head *ListNode) *ListNode {
 		// Move ptr1 forward
 		ptr1 = ptr1.Next
 		// Move ptr2 backward
-		ptr2 = moveTo(head, index)
 		index--
+		ptr2 = moveTo(head, index)
 	}
 
 	return head
