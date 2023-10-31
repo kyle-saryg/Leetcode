@@ -40,40 +40,55 @@ func reverseList(head *ListNode) *ListNode {
 	ptr1 := head
 	// ptr2 starts at the end of the list, iterates back
 	ptr2 := head
-	maxIndex := 1
+	// Index is initialized to the max index of the list, then decremented during swappage
+	index := 0
 
 	// Moving ptr2 to the end of the list
 	for ptr2.Next != nil {
 		ptr2 = ptr2.Next
-		maxIndex++
+		index++
 	}
 
 	// Infinite loop, breaks on condition C
 	for {
-		// Pointing at the same node
-		if ptr1 == ptr2 {
-			break
-		}
 		// Swap values
 		swapValues(ptr1, ptr2)
+		/*
+		   Post-swap:
+		    -- ptr1 is one node behind ptr2
+		    -- ptr1 and ptr2 are pointing at the same node
+		*/
+		if ptr1.Next == ptr2 || ptr1 == ptr2 {
+			break
+		}
 		// Move ptr1 forward
 		ptr1 = ptr1.Next
 		// Move ptr2 backward
-		ptr2 = moveTo()
-
-		// Post-swap: ptr1 is one node behind ptr2
-		if ptr1.Next == ptr2 {
-			break
-		}
+		ptr2 = moveTo(head, index)
+		index--
 	}
 
 	return head
 }
 
 func swapValues(node1 *ListNode, node2 *ListNode) {
-
+	tmp := node1.Val
+	node1.Val = node2.Val
+	node2.Val = tmp
 }
 
+/*
+Caution:
+ 1. if index is past the last node, WILL SEGFAULT
+
+TODO:
+  - Fix 1
+*/
 func moveTo(head *ListNode, index int) *ListNode {
-	return nil
+	// head is at index 0
+	for ctr := 0; ctr < index; ctr++ {
+		head = head.Next
+	}
+
+	return head
 }
