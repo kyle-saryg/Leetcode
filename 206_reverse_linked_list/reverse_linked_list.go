@@ -23,6 +23,13 @@ Notes:
   - Could make algorithm in-place
   - Replace slice with a single int (would add more traversal)
   - Sacrifice memory, for speed
+
+Memory Complexity: O(n)
+
+Time Complexity: O(n^2 + n + n) => O(n^2)
+  - Finding Max index = O(n)
+  - Traversing LL Backwards = O(n^2)
+  - Traversing LL = O(n)
 */
 func reverseList(head *ListNode) *ListNode {
 	// Empty list
