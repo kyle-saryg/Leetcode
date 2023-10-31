@@ -1,4 +1,4 @@
-package reverseLinkedList
+package reverseLinkedList2
 
 import (
 	. "github.com/kyle-saryg/Leetcode/linkedList"
