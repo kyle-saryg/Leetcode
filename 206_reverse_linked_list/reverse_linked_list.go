@@ -72,10 +72,8 @@ Usage:
 TODO:
 -- Error check if 'ptr' moves past the end of list
 */
-// SEGFAULTS DEBUG
 func moveTo(ptr *ListNode, index int) *ListNode {
 	tmp := 0
-	// TODO: Check if < or <=
 
 	/*
 		index = 4
