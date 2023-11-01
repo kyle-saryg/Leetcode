@@ -22,5 +22,30 @@ helper funcs:
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 
-	return nil
+	curr1 := list1
+	curr2 := list2
+
+	for curr1 != nil && curr2 != nil {
+		next1 := curr1.Next
+		next2 := curr2.Next
+		if curr1.Val >= curr2.Val {
+			//Inserting curr2 into list1
+			curr1.Next = curr2
+			curr2.Next = next1
+			curr2 = next2
+		} else {
+			curr1 = next1
+		}
+	}
+
+	if curr2 != nil {
+		appendList()
+	}
+
+	// Inserting nodes from list2 into list1
+	return list1
+}
+
+func appendList(destination *ListNode, target *ListNode) {
+
 }
