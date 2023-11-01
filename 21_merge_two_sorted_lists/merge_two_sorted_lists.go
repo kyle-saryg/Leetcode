@@ -5,18 +5,19 @@ import (
 )
 
 /*
-algorithm:
- -- curr1 starts at head of list1
- -- next1 is one node ahead of curr1
- -- curr2 starts at head of list2
- -- next2 is one node ahead of curr2
+c1 starts at list1 head
+c2 starts at list2 head
 
- -- Compare values of curr1 and curr2
- -- Example: curr1 is less than curr2
-   -- curr1.next = curr2
-   -- curr2.next = next1
-   -- curr1 = next1
-   -- next1 = next1.next
+note: if c2 is nil, inserted all of list2 into list1, prevents seg fault
+while c1 != nil and c2 != nil
+  -- if c1 is GE c2
+    -- insert c2 behind c1
+
+if c2 != nil
+  -- Append the rest of list2 to list1
+
+helper funcs:
+  appendList()
 */
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
