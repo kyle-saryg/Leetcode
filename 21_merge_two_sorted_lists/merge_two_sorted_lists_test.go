@@ -23,7 +23,7 @@ func TestMergeTwoLists(t *testing.T) {
 			output := mergeTwoLists(linkedList.CreateList(tc.list1), linkedList.CreateList(tc.list2))
 
 			if !linkedList.Compare(output, linkedList.CreateList(tc.expected)) {
-				// Fill out t.errorf
+				t.Errorf("\n list1: %v\n list2: %v\n expected: %v \n output: %v\n", tc.list1, tc.list2, tc.expected, output)
 			}
 
 		})
