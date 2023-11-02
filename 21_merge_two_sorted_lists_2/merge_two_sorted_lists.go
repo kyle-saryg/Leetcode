@@ -6,11 +6,19 @@ import (
 
 /*
 Algorithm:
-	1. Select head of list
-	2. Traverse both lists
-	  -- Compare values, insert lowest value node into new list
-	3. Once the end of either list is reached
-	  -- append the rest of the other list
+  1. Select head of list
+  2. Traverse both lists
+    -- Compare values, insert lowest value node into new list
+  3. Once the end of either list is reached
+    -- append the rest of the other list
+
+Time - Complexity: O(n)
+  2. => O(n)
+  3. => O(n)
+
+Space - Complexity: O(1)
+  -- No additional memory is allocated
+  -- Iterative
 
 helper funcs:
   appendList()
