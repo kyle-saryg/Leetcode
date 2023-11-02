@@ -46,6 +46,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	return list1
 }
 
-func appendList(destination *ListNode, target *ListNode) {
+// 'dest' is the end of list1
+// 'target' is where 'curr2' leaves off at
+func appendList(dest *ListNode, target *ListNode) {
 
 }
