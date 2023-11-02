@@ -15,8 +15,8 @@ func TestMergeTwoLists(t *testing.T) {
 		expected []int
 	}{
 		{0, []int{1, 2, 4}, []int{1, 3, 4}, []int{1, 1, 2, 3, 4, 4}},
-		// {1, []int{}, []int{}, []int{}},
-		// {2, []int{}, []int{0}, []int{0}},
+		{1, []int{}, []int{}, []int{}},
+		{2, []int{}, []int{0}, []int{0}},
 	}
 	for _, tc := range testCases {
 		t.Run(fmt.Sprintf("Test Case #%v", tc.id), func(t *testing.T) {
