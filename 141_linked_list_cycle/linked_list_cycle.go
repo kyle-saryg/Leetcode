@@ -26,23 +26,29 @@ Algorithm 1:
 
  -- Reached the end of the list
    -- Linked List does NOT have a loop
+
+Time - Complexity: O(n)
+Space - Complexity: O(1)
 */
 
 func hasCycle(head *ListNode) bool {
-	/*
-		TODO:
-			-- May not need both conditions in part 1
-			-- Edgecase: Empty list
-			?- Edgecase: Single list node looping back on itself
-	*/
+	// Edgecase: Empty list
+	// Edgecase: Single node list
+	if head == nil || head.Next == nil {
+		return false
+	}
+
 	fastRunner := head
 	slowRunner := head
 
-	// 1. May not need both conditions
-	for fastRunner.Next != nil && fastRunner != nil {
+	for fastRunner.Next != nil {
 		// Traverse fastRunner two nodes
 		fastRunner = fastRunner.Next
 		fastRunner = fastRunner.Next
+		// Reached the end of the list
+		if fastRunner == nil {
+			break
+		}
 		// Traverse slowRunner one node
 		slowRunner = slowRunner.Next
 
