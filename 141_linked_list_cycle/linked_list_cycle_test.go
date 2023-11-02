@@ -28,7 +28,7 @@ func TestHasCycle(t *testing.T) {
 			}
 
 			result := hasCycle(ll)
-			if !result {
+			if result != tc.expected {
 				t.Errorf("\t\n--input: %v \n\t--expected: %v \n\t--result: %v\n", tc.input, tc.expected, result)
 			}
 
