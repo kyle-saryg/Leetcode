@@ -16,4 +16,7 @@ Note: Two algorithms in mind, want to write both.
 Algorithm
 */
 
-func hasCycle(head *ListNode) bool {}
+func hasCycle(head *ListNode) bool {
+
+	return nil
+}
