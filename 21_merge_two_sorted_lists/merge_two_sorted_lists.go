@@ -1,8 +1,6 @@
 package mergeTwoSortedLists
 
 import (
-	"fmt"
-
 	. "github.com/kyle-saryg/Leetcode/linkedList"
 )
 
@@ -24,38 +22,47 @@ helper funcs:
 */
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	if list1 == nil && list2 == nil {
+		return nil
+	}
 
 	curr1 := list1
 	curr2 := list2
 	var prev1 *ListNode = nil
+	next2 := curr2.Next
 	/*
 		Example:
 		list 1: [1][2][4][nil]
-				   p1 c1
+		        c1
 		list 2: [1][3][4][nil]
-					  c2  n2
-		-- [1][1][2][4]
-		-- [1][1][2][3][4]
+				c2  n2
+				p1
 		--
 	*/
 
-	for curr1 != nil && curr2 != nil {
-		next2 := curr2.Next
+	for curr1 != nil && next2 != nil {
+
 		if curr1.Val >= curr2.Val {
 			//Inserting curr2 into list1
+			if prev1 == nil {
+				// Inserting behind the head of list1
+				// Re-assigning head
+				list1 = curr2
+			}
 			if prev1 != nil {
 				prev1.Next = curr2
-				prev1 = curr2
 			}
+			prev1 = curr2
 			curr2.Next = curr1
 			curr2 = next2
 		} else {
 			prev1 = curr1
 			curr1 = curr1.Next
 		}
+
+		next2 = curr2.Next
 	}
 
-	fmt.Printf(" -- LINE 42: curr1: %v\tcurr2: %v\n", curr1, curr2)
 	if curr2 != nil {
 		appendList(curr1, curr2)
 	}
