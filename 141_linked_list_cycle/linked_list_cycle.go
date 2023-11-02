@@ -29,6 +29,30 @@ Algorithm 1:
 */
 
 func hasCycle(head *ListNode) bool {
+	/*
+		TODO:
+			-- May not need both conditions in part 1
+			-- Edgecase: Empty list
+			?- Edgecase: Single list node looping back on itself
+	*/
+	fastRunner := head
+	slowRunner := head
 
-	return nil
+	// 1. May not need both conditions
+	for fastRunner.Next != nil && fastRunner != nil {
+		// Traverse fastRunner two nodes
+		fastRunner = fastRunner.Next
+		fastRunner = fastRunner.Next
+		// Traverse slowRunner one node
+		slowRunner = slowRunner.Next
+
+		// Are they pointing at the same node?
+		if fastRunner == slowRunner {
+			// loop exists
+			return true
+		}
+	}
+
+	// No loop
+	return false
 }
