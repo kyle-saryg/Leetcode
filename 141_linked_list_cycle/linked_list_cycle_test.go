@@ -19,7 +19,7 @@ func TestHasCycle(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		t.Run(fmt.Sprintf("Test Case #%v", tc.id), func(t *testing.T) {
+		t.Run(fmt.Sprintf("Test Case #%v\n", tc.id), func(t *testing.T) {
 			// Create linked list
 			// Add the loop based on the 'expected' boolean
 			ll := linkedList.CreateList(tc.input)
@@ -29,7 +29,7 @@ func TestHasCycle(t *testing.T) {
 
 			result := hasCycle(ll)
 			if !result {
-				t.Errorf("\t--input: %v \n\t--expected: %v \n\t--result: %v\n", tc.input, tc.expected, result)
+				t.Errorf("\t\n--input: %v \n\t--expected: %v \n\t--result: %v\n", tc.input, tc.expected, result)
 			}
 
 		})
