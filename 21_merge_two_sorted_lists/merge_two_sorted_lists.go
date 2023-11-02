@@ -25,20 +25,53 @@ helper funcs:
   appendList()
 
 */
-/*
-Example:
-	c1 = list 1 current
-	n2 = leading c1 // Used to connect list 1 when inserting c2
-	c2 = list 2 current
-	n2 = leading c2 // Used to move c2 back to list 2 (Post - Insertion)
-
-
-	list 1: [1][2][4][nil]
-	list 2: [1][3][4][nil]
-	--
-*/
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	if list1 == nil && list2 == nil {
+		return nil
+	}
+
+	curr1 := list1
+	curr2 := list2
+	var prev1 *ListNode = nil
+	next2 := curr2.Next
+	/*
+		Example:
+		list 1: [1][2][4][nil]
+		        c1
+		list 2: [1][3][4][nil]
+				c2  n2
+				p1
+		--
+	*/
+
+	for curr1 != nil && next2 != nil {
+
+		if curr1.Val >= curr2.Val {
+			//Inserting curr2 into list1
+			if prev1 == nil {
+				// Inserting behind the head of list1
+				// Re-assigning head
+				list1 = curr2
+			}
+			if prev1 != nil {
+				prev1.Next = curr2
+			}
+			prev1 = curr2
+			curr2.Next = curr1
+			curr2 = next2
+		} else {
+			prev1 = curr1
+			curr1 = curr1.Next
+		}
+
+		next2 = curr2.Next
+	}
+
+	if curr2 != nil {
+		appendList(curr1, curr2)
+	}
+
 	// Inserting nodes from list2 into list1
 	return list1
 }
