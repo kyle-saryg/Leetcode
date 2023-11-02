@@ -31,10 +31,12 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	/*
 		Example:
 		list 1: [1][2][4][nil]
-					p1 c1
+				   p1 c1
 		list 2: [1][3][4][nil]
-					c2 n2
-		-- [1][1]
+					  c2  n2
+		-- [1][1][2][4]
+		-- [1][1][2][3][4]
+		--
 	*/
 
 	for curr1 != nil && curr2 != nil {
@@ -43,6 +45,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 			//Inserting curr2 into list1
 			if prev1 != nil {
 				prev1.Next = curr2
+				prev1 = curr2
 			}
 			curr2.Next = curr1
 			curr2 = next2
