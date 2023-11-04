@@ -1,7 +1,6 @@
 package validPalindrome2
 
 import (
-	"strings"
 	"unicode"
 )
 
@@ -12,14 +11,12 @@ Algorithm:
 
 
   1. Verify palindrome
-    -- if p1 is NOT alphanumeric
-	  -- Increment p1
-	  -- pass
-	-- if p2 is NOT alphanumeric
-	  -- Decrement p1
+    1.1 If p1 or p2 is NOT alphanumeric
+	  -- Move the non-alphanumeric pointer
 	  -- pass
 
-	-- Ensure lowercase of p1 and p2 are the same character
+	1.2 If lowercase of p1 and p2 are not equal
+	  -- Not a palindrome
 
 	-- Increment p1
 	-- Decrement p2
@@ -33,33 +30,34 @@ Space - Complexity:
 */
 
 func isPalindrome(s string) bool {
-	//1. Filter input string
-	filteredString := alphanumericFilter(s)
-	input := strings.ToLower(filteredString)
+	trailing := 0
+	leading := len(s) - 1
 
-	trailIndex := 0
-	leadIndex := len(input) - 1
+	//1. Verifying palindrome
+	// Could also be < ?? check later
+	for trailing <= leading {
+		trailChar := rune(s[trailing])
+		leadChar := rune(s[leading])
 
-	//2 & 3, verifying palindrome
-	for trailIndex <= leadIndex {
-		if input[trailIndex] != input[leadIndex] {
+		// 1.1 Ensuring iterators are alphanumeric
+		if !unicode.IsLetter(trailChar) || !unicode.IsDigit(trailChar) {
+			trailing++
+			continue
+		}
+		if !unicode.IsLetter(leadChar) || !unicode.IsDigit(leadChar) {
+			leading--
+			continue
+		}
+
+		// 1.2 Verifying equivalence
+		if unicode.ToLower(trailChar) != unicode.ToLower(leadChar) {
 			return false
 		}
-		trailIndex++
-		leadIndex--
+
+		trailing++
+		leading--
 	}
 
+	// Verified entire string
 	return true
-}
-
-func alphanumericFilter(input string) string {
-	filteredString := ""
-
-	for _, char := range input {
-		if unicode.IsLetter(char) || unicode.IsNumber(char) {
-			filteredString = filteredString + string(char)
-		}
-	}
-
-	return filteredString
 }
