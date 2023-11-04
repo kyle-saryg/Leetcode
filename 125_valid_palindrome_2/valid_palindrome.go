@@ -24,6 +24,13 @@ Algorithm:
   2. Repeat 2 intil p1 and p2 are pointing at the same index or p1 becomes greater than p2
     -- p1 <= p2
 
+Issues:
+  1.0 Fails if the number of non-alphanumeric characters leans more to one end
+
+Solution 1.0:
+  -- Trailing character counter and leading character counter
+  -- nvm I abandon this algorithm
+
 Time - Complexity:
 
 Space - Complexity:
