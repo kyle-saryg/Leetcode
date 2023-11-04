@@ -23,6 +23,14 @@ Algorithm:
 
   3. Repeat 2 intil p1 and p2 are pointing at the same index or p1 becomes greater than p2
     -- p1 <= p2
+
+Time - Complexity: O(n)
+  1.1 - O(n)
+  1.2 - O(n)
+  2 & 3 - O(n)
+
+Space - Complexity: O(n)
+  -- Creating a filtered string takes up memory which grows with the size of the initial input
 */
 
 func isPalindrome(s string) bool {
