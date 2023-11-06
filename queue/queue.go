@@ -5,14 +5,31 @@ import (
 )
 
 type Queue struct {
-	queueNode *linkedList.ListNode
+	firstNode *linkedList.ListNode
+	lastNode  *linkedList.ListNode
 }
 
 func (q *Queue) Add(val int) {
-	// Adding to the end of the list
-	q.queueNode.Append(val)
+	newNode := &linkedList.ListNode{Val: val, Next: nil}
+
+	// Error checking, prevents seg-faults when inserting into an empty queue
+	if q.firstNode == nil {
+		q.firstNode = newNode
+	}
+	if q.lastNode == nil {
+		q.lastNode = newNode
+	}
+
+	// Inserting into the end
+	q.lastNode.Next = newNode
+	// Updating last node
+	q.lastNode = newNode
+}
+
+// Returns the next node in the queue AND deletes
+func (q *Queue) QueueUp() int {
 }
 
 func InitStack() *Queue {
-	return &Queue{queueNode: nil}
+	return &Queue{firstNode: nil, lastNode: nil}
 }
