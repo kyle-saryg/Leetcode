@@ -26,8 +26,9 @@ func (q *Queue) Add(val int) {
 	q.lastNode = newNode
 }
 
-// Returns the next node in the queue AND deletes
+// Returns the next node in the queue AND deletes it (removing all references to the node)
 func (q *Queue) QueueUp() int {
+
 }
 
 func InitStack() *Queue {
