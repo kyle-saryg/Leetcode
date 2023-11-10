@@ -1,6 +1,8 @@
 package queue
 
 import (
+	"fmt"
+
 	"github.com/kyle-saryg/Leetcode/linkedList"
 )
 
@@ -27,8 +29,19 @@ func (q *Queue) Add(val int) {
 }
 
 // Returns the next node in the queue AND deletes it (removing all references to the node)
-func (q *Queue) QueueUp() int {
+func (q *Queue) QueueUp() (int, error) {
+	/*
+		[front] -> [] -> [] -> [] -> [end]
+		q.FN                          q.LN
+	*/
+	if q.firstNode == nil {
+		return -1, fmt.Errorf("Queue is empty")
+	}
 
+	retVal := q.firstNode.Val
+	q.firstNode = q.firstNode.Next
+
+	return retVal, nil
 }
 
 func InitQueue() *Queue {
