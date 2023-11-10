@@ -4,11 +4,28 @@ import (
 	"fmt"
 
 	"github.com/kyle-saryg/Leetcode/linkedList"
+	"github.com/kyle-saryg/Leetcode/queue"
 	"github.com/kyle-saryg/Leetcode/stack"
 )
 
 func main() {
-	testStack()
+	testQueue()
+}
+
+func testQueue() {
+	queue := queue.InitQueue()
+
+	for i := 0; i <= 10; i++ {
+		fmt.Printf("Adding -> %v\n", i)
+		queue.Add(i)
+	}
+
+	for retVal, err := queue.QueueUp(); err == nil; retVal, err = queue.QueueUp() {
+		fmt.Printf("Queueing Up -> %v\n", retVal)
+	}
+
+	_, err := queue.QueueUp()
+	fmt.Printf("err -> %v\n", err)
 }
 
 func testStack() {
