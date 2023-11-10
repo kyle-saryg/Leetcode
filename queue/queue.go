@@ -31,6 +31,6 @@ func (q *Queue) QueueUp() int {
 
 }
 
-func InitStack() *Queue {
+func InitQueue() *Queue {
 	return &Queue{firstNode: nil, lastNode: nil}
 }
