@@ -6,6 +6,10 @@ import (
 	"github.com/kyle-saryg/Leetcode/linkedList"
 )
 
+/*
+Implemented a queue using a linked list
+*/
+
 type Queue struct {
 	firstNode *linkedList.ListNode
 	lastNode  *linkedList.ListNode
